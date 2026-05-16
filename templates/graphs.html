@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Графики{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <h1 class="mb-4">Мониторинг показателей</h1>
+  
+  {% if prediction %}
+    <div class="alert alert-info mb-4">
+      Прогноз: уровень гелия опустится ниже 55% — <strong>{{ prediction }}</strong>
+    </div>
+  {% endif %}
+
+  <!-- Первая строка - температуры T1 и T2 -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="card h-100">
+        <div class="card-body">
+          {{ plots.div.plot1 | safe }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card h-100">
+        <div class="card-body">
+          {{ plots.div.plot2 | safe }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Вторая строка - гелий в % и литрах -->
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card h-100">
+        <div class="card-body">
+          {{ plots.div.plot3 | safe }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card h-100">
+        <div class="card-body">
+          {{ plots.div.plot4 | safe }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block bokeh_scripts %}
+  {{ plots.script | safe }}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Ввод данных{% endblock %}
+
+{% block content %}
+  <h1>Ввод данных</h1>
+  <form method="POST">
+    <div class="mb-3">
+      <label for="time" class="form-label">Дата:</label>
+      <input type="datetime-local" name="time" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="T1" class="form-label">Температура T1:</label>
+      <input type="number" step="any" name="T1" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="T2" class="form-label">Температура T2:</label>
+      <input type="number" step="any" name="T2" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="He" class="form-label">Уровень гелия:</label>
+      <input type="number" step="any" name="He" class="form-control" required>
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" name="new_He" class="form-check-input" id="newHe">
+      <label class="form-check-label" for="newHe">Заливка гелия</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Отправить</button>
+  </form>
+{% endblock %}
